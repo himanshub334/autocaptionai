@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Env
+.env
+.env.local
+
+# Build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# Docker
+*.pid
+
+# Models cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
