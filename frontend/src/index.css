@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-surface-border;
+  }
+
+  body {
+    @apply bg-surface text-text-primary antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-700; }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-4 py-2 rounded-lg 
+           transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-hover hover:bg-surface-border text-text-primary font-medium px-4 py-2 
+           rounded-lg transition-colors duration-150;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-surface-hover text-text-secondary hover:text-text-primary px-3 py-2 
+           rounded-lg transition-colors duration-150;
+  }
+
+  .input {
+    @apply bg-surface-hover border border-surface-border rounded-lg px-3 py-2 
+           text-text-primary placeholder-text-muted focus:outline-none focus:border-brand-500 
+           focus:ring-1 focus:ring-brand-500 transition-colors w-full;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success { @apply badge bg-emerald-500/20 text-emerald-400; }
+  .badge-warning { @apply badge bg-amber-500/20 text-amber-400; }
+  .badge-error   { @apply badge bg-red-500/20 text-red-400; }
+  .badge-info    { @apply badge bg-brand-500/20 text-brand-400; }
+  .badge-default { @apply badge bg-surface-border text-text-secondary; }
+}
+
+/* Video player styling */
+.react-player video {
+  border-radius: 0.5rem;
+}
+
+/* Subtitle editor */
+.subtitle-segment {
+  @apply transition-colors duration-100;
+}
+
+.subtitle-segment.active {
+  @apply bg-brand-500/10 border-l-2 border-brand-500;
+}
+
+/* Upload drag zone */
+.drop-zone-active {
+  @apply border-brand-500 bg-brand-500/5;
+}
+
+/* Progress animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(107, 90, 255, 0.1) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
